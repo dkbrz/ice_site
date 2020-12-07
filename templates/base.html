@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="static/css/bootstrap.min.css">
+        <script src="static/js/jquery.min.js"></script>
+        <script src="static/js/bootstrap.bundle.min.js"></script>
+        <link rel="stylesheet" href="static/css/icelandic.css">
+        <title>{% block title %} {% endblock %}</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <a class="navbar-brand" href="/">Формульные коснтрукции</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse">
+            <div class="navbar-nav">
+              <a class="nav-link" href="/search">Поиск по формулам</a>
+            </div>
+          </div>
+        </nav>
+
+        <div style="margin: 50px 10%">
+            {% block content %} {% endblock %}
+        </div>
+
+    </body>
+</html>
