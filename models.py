@@ -24,20 +24,21 @@ class TextContent(db.Model):
     token = db.relationship("Token", uselist=False, primaryjoin="Token.id==TextContent.token_id")
 
 
-class NgramFilters(db.Model):
+class ClusterFilters(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     cluster_id = db.Column(db.Integer)
     short_ngram_id = db.Column(db.Integer)
     cluster = db.Column(db.Integer)
     n_entries = db.Column(db.Integer)
+    unique_text = db.Column(db.Integer)
     text = db.Column(db.Text)
-    verb_first = db.Column(db.Text(1))
-    verb = db.Text(db.Text)
 
 
 class NgramEntries(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    short_ngram_id = db.Column(db.Integer)
     cluster_id = db.Column(db.Integer)
     sentence_unique = db.Column(db.Integer)
     start = db.Column(db.Integer)
     end = db.Column(db.Integer)
+
