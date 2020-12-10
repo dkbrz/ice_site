@@ -3,5 +3,7 @@
 {% block title %} Формула {% endblock %}
 
 {% block content %}
-    {{ data }}
+    {% for entry in data %}
+        <div> {{ entry["ngram_text"] | safe }}</div>
+    {% endfor %}
 {% endblock %}

@@ -1,7 +1,12 @@
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import ForeignKey, PrimaryKeyConstraint
+from sqlalchemy import ForeignKey
 
 db = SQLAlchemy()
+
+
+class Text(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    text_name = db.Column(db.Text)
 
 
 class Token(db.Model):
@@ -12,7 +17,7 @@ class Token(db.Model):
 
 class TextContent(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    text = db.Column(db.Integer)
+    text = db.Column(db.Integer, ForeignKey("text.id"))
     chapter = db.Column(db.Integer)
     paragraph = db.Column(db.Integer)
     sentence = db.Column(db.Integer)
@@ -22,6 +27,7 @@ class TextContent(db.Model):
 
     # relationships
     token = db.relationship("Token", uselist=False, primaryjoin="Token.id==TextContent.token_id")
+    text_obj = db.relationship("Text", uselist=False, primaryjoin="Text.id==TextContent.text")
 
 
 class ClusterFilters(db.Model):
@@ -38,7 +44,12 @@ class NgramEntries(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     short_ngram_id = db.Column(db.Integer)
     cluster_id = db.Column(db.Integer)
+    text = db.Column(db.Integer, ForeignKey("text.id"))
+    chapter = db.Column(db.Integer)
+    paragraph = db.Column(db.Integer)
+    sentence = db.Column(db.Integer)
     sentence_unique = db.Column(db.Integer)
     start = db.Column(db.Integer)
     end = db.Column(db.Integer)
 
+    text_obj = db.relationship("Text", uselist=False, primaryjoin="Text.id==NgramEntries.text")
