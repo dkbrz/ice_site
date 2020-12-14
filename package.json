@@ -18,6 +18,7 @@
   "homepage": "https://github.com/dkbrz/ice_site#readme",
   "dependencies": {
     "bootstrap": "^4.5.3",
-    "jquery": "^3.5.1"
+    "jquery": "^3.5.1",
+    "popper": "^1.0.1"
   }
 }
