@@ -43,21 +43,24 @@ class Search:
         return [
             {
                 "id": item.cluster_id,
-                "text": item.text
+                "text": item.text,
+                "n_entries": item.n_entries,
+                "n_texts": item.unique_text
             }
             for item in raw_result
         ]
 
     def get_formula_contexts(self, cluster_id):
         """Get formula contexts for formula page"""
-        contexts = Ne.query.filter(Ne.cluster_id == cluster_id).all()
+        contexts = Ne.query.filter(
+            Ne.cluster_id == cluster_id
+        ).order_by(Ne.text, Ne.chapter, Ne.paragraph, Ne.sentence).all()
         return [
             {
                 "text_name": c.text_obj.text_name,
                 "chapter_id": c.chapter,
                 "paragraph_idx": c.paragraph,
                 "sentence_idx": c.sentence,
-                "cluster_id": c.cluster_id,
                 "ngram_text": self.get_full_context(c)
             }
             for c in contexts
