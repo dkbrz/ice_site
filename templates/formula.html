@@ -3,7 +3,61 @@
 {% block title %} Формула {% endblock %}
 
 {% block content %}
-    {% for entry in data %}
-        <div> {{ entry["ngram_text"] | safe }}</div>
-    {% endfor %}
+	
+	<section id="formula-params">
+	  <div class="container p-5">
+	    <h3 class="mt-5 text-center text-muted">Контесты употребления конструкции</h3>
+	  </div>
+	</section>
+
+	<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-chevron-double-up caret-up-btn" viewBox="0 0 16 16">
+		  <path fill-rule="evenodd" d="M7.646 2.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 3.707 2.354 9.354a.5.5 0 1 1-.708-.708l6-6z"/>
+		  <path fill-rule="evenodd" d="M7.646 6.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 7.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z"/>
+	</svg>
+
+
+	<section id="formula-contexts">
+
+		<div class="container" id="formula-examples">
+
+			{% for entry in data %}
+
+				<hr class="featurette-divider">
+
+				<div class="row featurette mb-5 p-5 formula-example">
+
+					<div class="col-md-4">
+						<table class="table table-borderless entry-info-table">
+							<tbody>
+								<tr>
+							      <th scope="row">Текст</th>
+							      <td>{{ entry["text_name"] | safe }}</td>
+							    </tr>
+							    <tr>
+							      <th scope="row">Глава</th>
+							      <td>{{ entry["chapter_id"]| safe }}</td>
+							    </tr>
+							    <tr>
+							      <th scope="row">Параграф</th>
+							      <td>{{ entry["paragraph_idx"]| safe }}</td>
+							    </tr>
+							    <tr>
+							      <th scope="row">Предложение</th>
+							      <td>{{ entry["sentence_idx"]| safe }}</td>
+							    </tr>
+							</tbody>
+						</table>
+					</div>
+
+					<div class="col-md-8 formula-context">
+						<p lang="is">...{{ entry["ngram_text"] | safe }}...</p>
+					</div>
+
+        		</div>
+        	{% endfor %}
+
+        </div>
+    </section>
+
 {% endblock %}
+

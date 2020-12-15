@@ -3,5 +3,144 @@
 {% block title %} Формульные конструкции {% endblock %}
 
 {% block content %}
-    <h1>Формулы</h1>
+	
+	<section id="banner">
+        <div class="jumbotron jumbotron-fluid jumbotron-image text-center text-light">
+              <div class="container">
+                <h1 class="display-4" style="padding-bottom: 5rem">Формульные конструкции</h1>
+                <p class="h5">Автоматический поиск формульных конструкций в древнеисландских сагах</p>
+              </div>
+        </div>
+    </section>
+
+
+    <section id="overview">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col py-3 px-lg-5 text-center text-light" id="overview-left">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.</p>
+              <a class="btn text-light" href="#project-description" role="button">Перейти к описанию</a>
+            </div>
+            <div class="col py-3 px-lg-5 text-center text-light" id="overview-right">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.</p>
+              <a class="btn text-light to-search-btn" role="button" id="overview-search-btn">Перейти к поиску конструкций</a> <!-- href="/search"  -->
+            </div>
+          </div>
+        </div>
+    </section>
+
+
+    <section id="project-description">
+
+    	<div class="container basic-content">
+
+    		<div class="row featurette my-5" id="description-title">
+		      <div class="col-md-7">
+		        <h1 class="featurette-heading">Описание проекта</h1>
+		        </div>
+		    </div>
+
+
+		    <div class="row featurette mb-5" id="description1">
+		      <div class="col-md-7">
+		        <p class="lead text">В произведениях фольклора и литературы могут встречаться повторяющиеся конструкции. С одной стороны, это могут быть формулы - повторяющиеся формулировки, встречающиеся во многих сагах и употребляющиеся в схожих содержательных или композиционных условиях (например, формула сказочного зачина "Жили-были"). С другой стороны, повторения фраз, встречающиеся в конкретной саге - повторы часто оказываются нарративным приемом в саговом повествовании (например, в "Саге о Курином Торире" одна и та же фраза в различных вариациях встречается четыре раза, таким образом обрамляется сожжение Кетиля Сони).</p>
+		      </div>
+		      <div class="col-md-3 offset-md-1">
+		      	<img src="static/img/saga1.jpg" class="featurette-image img-fluid mx-auto" alt="Первый этап проекта">
+		      </div>
+		    </div>
+
+
+		    <div class="row featurette mb-5" id="description2">
+		    	<div class="col my-5">
+		    		<h3><span class="text" style="color: #2e332d">Цель проекта</span><span class="text-muted">- автоматизированный (непредзаданный) поиск повторяющихся конструкций с той или иной степенью вариативности</span></h3>	
+		    	</div>
+		    </div>
+
+
+		    <div class="row featurette mb-5" id="description3">
+		    	<div class="col-md-3 offset-md-1">
+		      		<img src="static/img/saga2.jpg" class="featurette-image img-fluid mx-auto" alt="Первый этап проекта">
+		      	</div>
+		      	<div class="col-md-7 offset-md-1">
+			        <p class="lead text">Повторы такого рода отличаются довольно сильной вариативностью. Часто часть слов  в них заменяется лексическими или контекстными синонимами. Несмотря на то, что при традиционной работе "руками" подобные конструкции легко заметить, их поиск занимает большое количество времени. По этой причине нам стало интересно попробовать автоматизировать процесс поиска и разработать алгоритм, который хотя бы частично облегчил задачу исследователей.</p>
+		      	</div>
+		    </div>
+
+
+		    <div class="row featurette mb-5" id="description4">
+		      <div class="col-md-7">
+		        <p class="lead text">Работа состоит из трех этапов: </p>
+		        <ul>
+		        	<li class="lead text">формирование списка нграмм</li>
+		        	<li class="lead text">фильтрации результатов</li>
+		        	<li class="lead text">«схлопывание» контекстных вариантов</li>	
+		        </ul>
+		    	<p class="lead text">В связи с тем, что некоторые варианты одной формулы могут встречаться очень редко, просто отсеивать нграммы по частотности не получается. Более того, устройство исландского языка усложняет нашу работу (свободный порядок слов, обилие компаундов и тд) и требует разработки специального алгоритма фильтрации, учитывающего особенности нашего языкового материала. В данный момент мы разрабатываем специальный алгоритм фильтрации с учетом особенностей исландского языка.</p>
+		      </div>
+		      <div class="col-md-3 offset-md-1">
+		      	<img src="static/img/saga3.jpg" class="featurette-image img-fluid mx-auto" alt="Первый этап проекта">
+		      </div>
+		    </div>
+
+	 	</div>
+
+    </section>
+
+
+    <section id="project-team">
+
+    	<div class="container basic-content">
+    		<div class="row featurette mb-5" id="team-names">
+    			<div class="col">
+    				<a class="btn-slide" id="team-list-btn">
+    					<h1 class="featurette-heading">Команда проекта
+    						<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-caret-up" fill="currentColor" xmlns="http://www.w3.org/2000/svg" id="caret-sigh">
+    							<path fill-rule="evenodd" d="M3.204 11L8 5.519 12.796 11H3.204zm-.753-.659l4.796-5.48a1 1 0 0 1 1.506 0l4.796 5.48c.566.647.106 1.659-.753 1.659H3.204a1 1 0 0 1-.753-1.659z"/>
+    						</svg>
+    					</h1>
+    				</a>
+    			</div>
+    		</div>
+
+    		<div class="row featurette mb-5" id="team-list">
+    			<table class="table table-borderless" id="team-members-table">
+    				<tbody>
+
+    					<tr>
+					      <td>
+					      	<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-person-dash" viewBox="0 0 16 16">
+					      	<path fill-rule="evenodd" d="M8 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6 5c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10zM11 7.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5z"/></svg> Дарья Глебова</td>
+					      <td>руководитель</td>
+					      <td>
+					      	<p>Преподаватель Факультет гуманитарных наук НИУ ВШЭ<a class="personal-link text-secondary" target="_blank" href="https://www.hse.ru/org/persons/46699944"> (страница)</a><p>
+					      </td>
+					    </tr>
+
+					    <tr>
+					      <td>
+					      	<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-person-dash" viewBox="0 0 16 16">
+					      	<path fill-rule="evenodd" d="M8 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6 5c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10zM11 7.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5z"/></svg> Евгений Глазунов</td>
+					      <td>разработка алгоритма и сайта</td>
+					      <td>
+					      	<p>Cтудент магистратуры <a class="personal-link text-secondary" target="_blank" href="https://www.hse.ru/org/persons/160961895">(страница)</a><p>
+					      </td>
+					    </tr>
+
+					    <tr>
+					      <td>
+					      	<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-person-dash" viewBox="0 0 16 16">
+					      	<path fill-rule="evenodd" d="M8 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6 5c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10zM11 7.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5z"/></svg> Анастасия Костяницына</td>
+					      <td>разработка алгоритма и сайта</td>
+					      <td>
+					      	<p>Cтудентка магистратуры <a class="personal-link text-secondary" target="_blank" href="https://www.hse.ru/org/persons/160975755">(страница)</a><p>
+					      </td>
+					    </tr>
+
+    				</tbody>
+				</table>
+    	</div>
+
+    </section>
+
 {% endblock %}
