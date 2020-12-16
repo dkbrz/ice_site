@@ -1,15 +1,7 @@
-from flask import Flask, render_template, request, jsonify, url_for
-from models import db #, ClusterFilters as Cf, NgramEntries as Ne, TextContent as Tc
-from search import Search
+from models import ClusterFilters as Cf, NgramEntries as Ne, TextContent as Tc
 
-
-app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///ice_site.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['JSON_AS_ASCII'] = False
-db.app = app
-db.init_app(app)
-db.create_all()
+MIN, MAX = 0, 1000
+SENT_WINDOW = 3
 
 
 class Search:
@@ -20,6 +12,7 @@ class Search:
 
     def formula_search(self, req):
         """Filter search results"""
+
         n_texts_min = req.values.get("n_texts_min", MIN)
         n_texts_max = req.values.get("n_texts_max", MAX)
         n_entries_min = req.values.get("n_entries_min", MIN)
@@ -94,34 +87,5 @@ class Search:
         return " ".join(result)
 
 
-search = Search()
-
-
-@app.route('/')
-def index():
-    """Index page"""
-    return render_template("index.html")
-
-
-@app.route('/search')
-def search_page():
-    """Search page"""
-    return render_template("search.html")
-
-
-@app.route("/api/formula_search", methods=["GET", "POST"])
-def api_search():
-    """API: list of formulas"""
-    data = search.formula_search(request)
-    return jsonify(data)
-
-
-@app.route("/formula/<int:formula_id>")
-def formula_view(formula_id):
-    """Page for single formula"""
-    data = search.get_formula_contexts(formula_id)
-    return render_template("formula.html", data=data)
-
-
 if __name__ == '__main__':
-    app.run(debug=True)
+    pass

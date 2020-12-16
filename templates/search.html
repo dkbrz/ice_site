@@ -3,5 +3,62 @@
 {% block title %} Поиск по формулам {% endblock %}
 
 {% block content %}
+	
+	<section id="search">
+
+		<div class="container basic-content">
+
+			<div class="row featurette my-5" id="split-layout-row">
+		      	
+		      	<div class="col-md-4" id="split-left">
+
+		      		<form class="p-4 bg-light" id="search-form">
+		      			<div class="form-group mb-5" id="entry-filter">
+		      				<h4 class="mb-5" id="filter-title">Фильтры</h4>
+		      				<label for="entry-range">Частотность конструкции:</label>
+			      			<input class="slider-label" type="text" id="entry-range" readonly>
+			      			<input type="hidden" id="n-entries-min" name="n_entries_min" >
+			      			<input type="hidden" id="n-entries-max" name="n_entries_max" >
+			      			<div id="entry-slider-range"></div>
+		      			</div>
+		      			<div class="form-group mb-4" id="text-filter">
+		      				<label for="text-range">В скольки текстах встретилась:</label>
+			      			<input class="slider-label" type="text" id="text-range" readonly>
+			      			<input type="hidden" id="n-texts-min" name="n_texts_min" >
+			      			<input type="hidden" id="n-texts-max" name="n_texts_max" >
+			      			<div id="text-slider-range"></div>
+		      			</div>
+			      		<button class="btn text-light" id="search-btn" type="submit">Поиск</button>
+		      		</form>
+		      	</div>
+		      	
+
+		      	<div class="col-md-8" id="split-right">
+
+		      		<div class="container mb-3"> 
+		      			<div class="row featurette mb-3">
+		      				<h3 class="featurette" id="search-title">Поиск по корпусу конструкций</h3>
+		      			</div>
+		      			<div class="row featurette mb-3" id="search-description">
+		      				<p>Какое-то объяснение поиска.</p>
+		      			</div>
+		      		</div>
+
+		      		<div class="container mb-5" id="alphabet"> 
+			      		<table class="table table-responsive table-borderless" id="alphabet-table">
+			      			<tbody>
+								<tr></tr>
+							</tbody>
+			      		</table>
+		      		</div>
+
+		      		<div class="container" id="construction-examples">
+		      		</div>
+
+		      	</div>
+		    </div>
+		</div>
+
+	</section>
 
 {% endblock %}

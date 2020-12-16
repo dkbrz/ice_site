@@ -1,3 +1,146 @@
-span.f-page-formula {
-    color: red;
+.entry-info-table th[scope=row] {
+  color: #af6b58 !important;
+  font-weight: bold !important;
 }
+
+
+body {
+   font-family: 'Montserrat' !important;
+}
+
+
+span.f-page-formula {
+    color: black;
+    margin: 10px;
+ 	  padding: 10px;
+  	background-color: #d5ded3; 
+  	display:inline-block; 
+}
+
+
+.navbar-brand {
+  color:  #af6b58 !important;
+  font-size: 1.8em !important;
+}
+
+
+.nav-link.active{
+  color:  #2e332d !important;
+}
+
+
+.nav-item {
+  color:  #2e332d !important;
+  font-size: 1.3em !important;
+}
+
+
+.jumbotron-image {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("../img/banner.png")!important;
+}
+
+
+.jumbotron {
+    padding: 15rem 2rem !important;
+    margin-bottom: 0rem !important;
+ }
+
+
+#overview-left {
+  background-color: #2e332d;
+}
+
+
+#overview-right {
+  background-color: #373b36;
+}
+
+
+#overview-left, #overview-right {
+  padding: 6rem 10rem !important;
+}
+
+
+.btn {
+  background-color: #af6b58 !important;
+  outline-color: #af6b58 !important;
+  margin-top: 2rem  !important;
+}
+
+
+#team-list-btn, .featurette-heading {
+	color:  #af6b58 !important;
+}
+
+
+.basic-content {
+	margin-top: 10rem !important;
+}
+
+
+main {
+	min-height: calc(100vh - 80px);
+}
+
+
+.caret-up-btn {
+  position: fixed;
+  margin-left: 20px;
+  color: grey;
+}
+
+
+.constructions{
+  -webkit-column-width: 200px;
+    -moz-column-width: 200px;
+    column-width: 200px;
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3;
+    -webkit-column-gap: 30px;
+    -moz-column-gap: 30px;
+    column-gap: 30px;
+    -webkit-column-rule: 1px solid #93a88f;
+    -moz-column-rule: 1px solid #93a88f;
+    column-rule: 1px solid #93a88f;
+}
+
+
+.main-letter {
+  color:  #af6b58 !important;
+  font-weight: bold !important;
+}
+
+
+.slider-label {
+  background-color: #f8f9fa;
+  border: 0; 
+  color: #af6b58;
+  font-weight: bold;
+  width: 70px;
+}
+
+#formula-examples {
+  max-width: 1320px !important;
+}
+
+
+#search-title, #filter-title {
+  color: #737a71 !important;
+  font-weight: bold !important;
+}
+
+
+footer {
+  overflow: hidden;
+  background-color: #737a71;
+}
+
+
+#team-members-table {
+  font-size: 1.25rem !important;
+}
+
