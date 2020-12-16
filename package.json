@@ -1,24 +1,24 @@
 {
-  "name": "icesite",
+  "name": "ice_site",
   "version": "1.0.0",
-  "description": "Website for the Formula constructions in Icelandic project",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Stoneberry/ice_site.git"
+    "url": "git+https://github.com/dkbrz/ice_site.git"
   },
-  "author": "Evgenii Glazunov, Anastasiya Kostyanitsyna",
-  "license": "MIT",
+  "author": "",
+  "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Stoneberry/ice_site/issues"
+    "url": "https://github.com/dkbrz/ice_site/issues"
   },
-  "homepage": "https://github.com/Stoneberry/ice_site#readme",
+  "homepage": "https://github.com/dkbrz/ice_site#readme",
   "dependencies": {
     "bootstrap": "^4.5.3",
     "jquery": "^3.5.1",
-    "jquery-ui-dist": "^1.12.1"
+    "popper.js": "^1.16.1"
   }
 }
