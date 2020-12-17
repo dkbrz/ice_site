@@ -1,3 +1,11 @@
+# -*- coding: utf-8 -*-
+"""
+Search module:
+
+1. API for search
+2. Entry preprocessing for single-formula page
+"""
+
 from models import ClusterFilters as Cf, NgramEntries as Ne, TextContent as Tc
 
 MIN, MAX = 0, 1000
@@ -31,7 +39,7 @@ class Search:
 
     @staticmethod
     def formula_search_to_dict(raw_result):
-        """Dictinary form for API"""
+        """Dictionary form for API"""
         return [
             {
                 "id": item.cluster_id,

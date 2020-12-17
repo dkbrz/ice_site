@@ -1,4 +1,16 @@
-from flask import Flask, render_template, request, jsonify, url_for
+# -*- coding: utf-8 -*-
+"""
+Main application:
+
+USER
+/ - index
+/search - formula search
+/formula/<int:formula_id> - single formula page
+
+API
+/api/formula_search - search API
+"""
+from flask import Flask, render_template, request, jsonify
 from models import db
 from search import Search
 
