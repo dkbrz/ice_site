@@ -9,6 +9,7 @@ from flask_restful import Resource, Api
 from models import ClusterFilters as Cf, NgramEntries as Ne, TextContent as Tc
 
 SENT_WINDOW = 3
+MIN, MAX = 0, 1000
 
 
 def formula_search_to_dict(raw_result):
@@ -18,7 +19,8 @@ def formula_search_to_dict(raw_result):
             "id": item.cluster_id,
             "text": item.text,
             "n_entries": item.n_entries,
-            "n_texts": item.unique_text
+            "n_texts": item.unique_text,
+            "verb_text": item.verb_text,
         }
         for item in raw_result
     ]
@@ -28,10 +30,10 @@ def formula_search(min_texts, max_texts, min_entries, max_entries):
     """Filter search results"""
 
     result = Cf.query.filter(
-        Cf.n_entries >= min_entries,
-        Cf.n_entries <= max_entries,
-        Cf.unique_text >= min_texts,
-        Cf.unique_text <= max_texts
+        Cf.n_entries >= (min_entries or MIN),
+        Cf.n_entries <= (max_entries or MAX),
+        Cf.unique_text >= (min_texts or MIN),
+        Cf.unique_text <= (max_texts or MAX)
     ).group_by(
         Cf.short_ngram_id
     ).order_by(Cf.text).all()
@@ -64,7 +66,7 @@ def get_full_context(context):
         Tc.text == context.text,
         Tc.sentence_unique >= (context.sentence_unique - SENT_WINDOW),
         Tc.sentence_unique <= (context.sentence_unique + SENT_WINDOW),
-    ).all()
+    ).order_by(Tc.id).all()
     return render_formula_context(context, words)
 
 

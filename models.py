@@ -32,6 +32,7 @@ class Token(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     word_form = db.Column(db.Text)
     lemma = db.Column(db.Text)
+    pos = db.Column(db.Text)
 
 
 class TextContent(db.Model):
@@ -77,6 +78,7 @@ class ClusterFilters(db.Model):
     n_entries = db.Column(db.Integer)
     unique_text = db.Column(db.Integer)
     text = db.Column(db.Text)
+    verb_text = db.Column(db.Text)
 
 
 class NgramEntries(db.Model):

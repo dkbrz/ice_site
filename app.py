@@ -23,7 +23,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['JSON_AS_ASCII'] = False
 db.app = app
 db.init_app(app)
-# db.create_all()
+db.create_all()
 
 api = Api(app)
 api.add_resource(FormulaSearch, '/api/formula_search')
@@ -45,7 +45,7 @@ def search_page():
 @app.route("/formula/<int:formula_id>")
 def formula_view(formula_id):
     """Page for single formula"""
-    data = FormulaContexts().get(formula_id)
+    data = FormulaContexts.get(formula_id, as_dict=True)
     return render_template("formula.html", data=data)
 
 
