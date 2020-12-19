@@ -10,16 +10,16 @@
         <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Montserrat&subset=cyrillic'>
 
         <title>{% block title %} {% endblock %}</title>
-    
+
     </head>
     <body>
 
       <header>
         <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 bg-white border-bottom shadow-sm" id="navbar">
-          <h3 class="my-0 mr-md-auto font-weight-normal navbar-brand">Формульные конструкции</h5>
+          <h3 class="my-0 mr-md-auto font-weight-normal navbar-brand">Формульные конструкции</h3>
           <nav class="my-2 my-md-0 mr-md-3">
-            <a class="p-3 nav-item" id="main-page">Главная</a>
-            <a class="p-3 nav-item to-search-btn" id="search-page"> 
+            <a class="p-3 nav-item" id="main-page" href="/">Главная</a>
+            <a class="p-3 nav-item to-search-btn" id="search-page" href="/search"> 
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
                 <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
@@ -28,8 +28,7 @@
         </div>
       </header>
 
-
-      <main role='main'>
+      <main>
         <div>
             {% block content %} {% endblock %}
         </div>
