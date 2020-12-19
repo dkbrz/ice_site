@@ -9,10 +9,12 @@ USER
 
 API
 /api/formula_search - search API
+/api/contexts/<formula_id> - contexts for one formula (with span)
 """
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template
+from flask_restful import Api
 from models import db
-from search import Search
+from api.api import FormulaSearch, FormulaContexts
 
 
 app = Flask(__name__)
@@ -21,9 +23,11 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['JSON_AS_ASCII'] = False
 db.app = app
 db.init_app(app)
-db.create_all()
+# db.create_all()
 
-search = Search()
+api = Api(app)
+api.add_resource(FormulaSearch, '/api/formula_search')
+api.add_resource(FormulaContexts, '/api/contexts/<formula_id>')
 
 
 @app.route('/')
@@ -38,18 +42,16 @@ def search_page():
     return render_template("search.html")
 
 
-@app.route("/api/formula_search", methods=["GET", "POST"])
-def api_search():
-    """API: list of formulas"""
-    data = search.formula_search(request)
-    return jsonify(data)
-
-
 @app.route("/formula/<int:formula_id>")
 def formula_view(formula_id):
     """Page for single formula"""
-    data = search.get_formula_contexts(formula_id)
+    data = FormulaContexts().get(formula_id)
     return render_template("formula.html", data=data)
+
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template("404.html"), 404
 
 
 if __name__ == '__main__':
