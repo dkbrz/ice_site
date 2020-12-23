@@ -36,7 +36,7 @@ def formula_search(min_texts, max_texts, min_entries, max_entries):
         Cf.unique_text <= (max_texts or MAX)
     ).group_by(
         Cf.short_ngram_id
-    ).order_by(Cf.text).all()
+    ).order_by(Cf.verb_text).all()
 
     return formula_search_to_dict(result)
 
