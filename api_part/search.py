@@ -5,8 +5,7 @@ Search module:
 1. API for search
 2. Entry preprocessing for single-formula page
 """
-from flask_restful import Resource, Api
-from models import ClusterFilters as Cf, NgramEntries as Ne, TextContent as Tc
+from api_part.models import ClusterFilters as Cf, NgramEntries as Ne, TextContent as Tc
 
 SENT_WINDOW = 3
 MIN, MAX = 0, 1000

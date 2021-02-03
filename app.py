@@ -8,26 +8,20 @@ USER
 /formula/<int:formula_id> - single formula page
 
 API
-/api/formula_search - search API
-/api/contexts/<formula_id> - contexts for one formula (with span)
+/api_part/formula_search - search API
+/api_part/contexts/<formula_id> - contexts for one formula (with span)
 """
 from flask import Flask, render_template
-from flask_restful import Api
-from models import db
-from api.api import FormulaSearch, FormulaContexts
-
+from api_part.api import FormulaContexts
+from config import API_URL
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///ice_site.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['JSON_AS_ASCII'] = False
-db.app = app
-db.init_app(app)
-db.create_all()
 
-api = Api(app)
-api.add_resource(FormulaSearch, '/api/formula_search')
-api.add_resource(FormulaContexts, '/api/contexts/<formula_id>')
+
+@app.context_processor
+def add_prefix():
+    """Add prefix (for main_site on host/folklore path)"""
+    return dict(prefix=API_URL)
 
 
 @app.route('/')
@@ -55,4 +49,4 @@ def page_not_found(e):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=5000)

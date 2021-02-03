@@ -7,7 +7,7 @@ Search module:
 """
 from flask import jsonify
 from flask_restful import Resource, reqparse
-from api.search import formula_search, get_formula_contexts
+from api_part.search import formula_search, get_formula_contexts
 
 parser = reqparse.RequestParser()
 parser.add_argument('n_texts_min', type=int)
