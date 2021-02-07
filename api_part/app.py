@@ -1,12 +1,5 @@
 # -*- coding: utf-8 -*-
 """
-Main application:
-
-USER
-/ - index
-/search - formula search
-/formula/<int:formula_id> - single formula page
-
 API
 /api_part/formula_search - search API
 /api_part/contexts/<formula_id> - contexts for one formula (with span)
@@ -26,8 +19,8 @@ db.init_app(app)
 db.create_all()
 
 api = Api(app)
-api.add_resource(FormulaSearch, '/api_part/formula_search')
-api.add_resource(FormulaContexts, '/api_part/contexts/<formula_id>')
+api.add_resource(FormulaSearch, '/api/formula_search')
+api.add_resource(FormulaContexts, '/api/contexts/<formula_id>')
 
 
 if __name__ == '__main__':
