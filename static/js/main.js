@@ -1,7 +1,11 @@
+// const config = require('config');
+// const API_URL = config.get('API.API_URL');
+// console.log(API_URL)
+
+
 $(document).ready(
 
   function() {
-
 
     // Если нажали на кнопку выдвинуть информацию о команде проекта, схлопываем и меняем значок
     $(".btn-slide").click( function() {
@@ -21,27 +25,27 @@ $(document).ready(
     });
 
 
-    let condition1 = (/\/formula\//.test(this.location.pathname));
-    let condition2 = ($( ".formula-example" ).length <= 0);
-    let condition3 = (window.location.pathname == '/');
+     let condition1 = (/\/formula\//.test(this.location.pathname));
+     let condition2 = ($( ".formula-example" ).length <= 0);
+     let condition3 = (window.location.pathname == '/');
 
-    // Если это страница контекста формулы и нет никаких данных, вставить предупреждалку с ошибкой
-    if (condition1 && condition2) {
-      insertEmptyOutputPlaque();
-    }
-
-
-    if (condition3) {
-      preventPageReboot();
-    } else {
-      getFormItems();
-    }
+     // Если это страница контекста формулы и нет никаких данных, вставить предупреждалку с ошибкой
+     if (condition1 && condition2) {
+       insertEmptyOutputPlaque();
+     }
 
 
-    // Если на старнице с выдачей контестов формул нажали на знак вернуться к началу страницы
-    $(".caret-up-btn").click( function() {
-      window.location.replace("#");
-    });
+     if (condition3) {
+       preventPageReboot();
+     } else {
+       getFormItems();
+     }
+
+
+     // Если на старнице с выдачей контестов формул нажали на знак вернуться к началу страницы
+     $(".caret-up-btn").click( function() {
+       window.location.replace("#");
+     });
   
   }
 );
@@ -120,22 +124,48 @@ function SearchSlider (labelName, minName, maxName) {
 }
 
 
+function MyJsonCallBackF (data) {
+    console.log('ajax done');
+};  
+
+
 // Перехват поисковых запросов
 function catchSearchQuery() {
 
     let query_values = $('form#search-form').serialize();
-
-    $.get("api/formula_search?" + query_values, function(data) {
-
-      let alpRow = $( "#alphabet-table > tbody > tr" );
-
-      alpRow.empty();
-      alpRow.append("<tr></tr>");
-      $("#construction-examples").empty();
-
-      let alphabet = data.reduce(getFirstLetters, {});
-      Object.entries(alphabet).forEach(insertAlphabet);
-  });
+    
+    var cur_api_url = API_URL + "/api/formula_search?" + query_values
+   
+	$.ajax({
+  		url: cur_api_url,
+  		type: 'GET',
+//   		dataType: 'jsonp',
+  		jsonp: 'callback',
+//   		jsonpCallback: jsonpCallback,
+//   		jsonpCallback: 'myCallback',
+		success: function( data ) {
+			let alpRow = $( "#alphabet-table" );
+			alpRow.empty();
+     		$("#construction-examples").empty();
+     		let alphabet = data.reduce(getFirstLetters, {});
+     		Object.entries(alphabet).forEach(insertAlphabet);
+    	},
+  		error: function(xhr, status, error) {
+        	console.log(status + '; ' + error);
+        }  		
+	});
+  
+  //  $.get(API_URL + "/api/formula_search?" + query_values, function(data) {
+// 
+//      let alpRow = $( "#alphabet-table" );
+// 
+//      alpRow.empty();
+// //      alpRow.append("<tr></tr>");
+//      $("#construction-examples").empty();
+// 
+//      let alphabet = data.reduce(getFirstLetters, {});
+//      Object.entries(alphabet).forEach(insertAlphabet);
+//  });
   return false;
 }
 
