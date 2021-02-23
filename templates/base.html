@@ -39,9 +39,10 @@
         <p class="text-light">© 2019-2020 НИУ ВШЭ</p>
       </footer>
 
+      <script src="{{ url_for('static', filename='js/config.js') }}"></script>
       <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
       <script src="{{ url_for('static', filename='js/jquery-ui.min.js') }}"></script>
-      <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+      <script type="module" src="{{ url_for('static', filename='js/main.js') }}"></script>
       <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
 
     </body>
