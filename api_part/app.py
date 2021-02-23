@@ -6,11 +6,16 @@ API
 """
 from flask import Flask
 from flask_restful import Api
+from flask_cors import CORS
+
 from api_part.models import db
 from api_part.api import FormulaSearch, FormulaContexts
 
 
 app = Flask(__name__)
+app.config['CORS_HEADERS'] = 'Content-Type'
+cors = CORS(app, resorces={r'/api/formula_search/*': {"origins": '*'}})
+
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///ice_site.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['JSON_AS_ASCII'] = False
