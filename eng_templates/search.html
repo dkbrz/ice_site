@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block title %} Formula search {% endblock %}
+
+{% block content %}
+
+	<section id="search">
+
+		<div class="container basic-content">
+
+			<div class="row my-5" id="split-layout-row">
+		      	
+		      	<div class="col-md-4" id="split-left">
+
+		      		<form class="p-4 bg-light" id="search-form">
+		      			<div class="form-group mb-5" id="entry-filter">
+		      				<h4 class="mb-5" id="filter-title">Filters</h4>
+		      				<label for="entry-range">Construction frequency:</label>
+			      			<input class="slider-label" type="text" id="entry-range" readonly>
+			      			<input type="hidden" id="n-entries-min" name="n_entries_min" >
+			      			<input type="hidden" id="n-entries-max" name="n_entries_max" >
+			      			<div id="entry-slider-range"></div>
+		      			</div>
+		      			<div class="form-group mb-4" id="text-filter">
+		      				<label for="text-range">The number of texts:</label>
+			      			<input class="slider-label" type="text" id="text-range" readonly>
+			      			<input type="hidden" id="n-texts-min" name="n_texts_min" >
+			      			<input type="hidden" id="n-texts-max" name="n_texts_max" >
+			      			<div id="text-slider-range"></div>
+		      			</div>
+			      		<button class="btn text-light" id="search-btn" type="submit">Search</button>
+		      		</form>
+		      	</div>
+		      	
+
+		      	<div class="col-md-8" id="split-right">
+
+		      		<div class="container mb-3" id="search-description"> 
+		      			<h3 id="search-title">Search the Corpus</h3>
+		      			<p>The algorithm for determining significant repetitions is based on the formation of a list of grams and its further filtering. Then the constructs are grouped together based on semantic and contextual similarity.</p>
+		      			<p>This search provides the ability to search by <span style="font-weight: bold">semantic groups</span>. You can filter constructions by the total frequency of the constructions included in the group and the number of texts in which they occur. Each construction presented in the output is one of the examples that is included in the group. Clicking on one of the output phases will allow you to see all the constructs in the group and the contexts in which they occur.</p>
+		      			<p>Output is filtered by the first letter of the verb.</p>
+						<p>To start, click the Search button.</p>
+		      		</div>
+
+		      		<div class="container mb-5" id="alphabet"> 
+		      			<div class="d-flex flex-wrap" id="alphabet-table">
+						</div>
+		      		</div>
+
+		      		<div class="container" id="construction-examples">
+		      		</div>
+
+		      	</div>
+		    </div>
+		</div>
+
+	</section>
+
+{% endblock %}

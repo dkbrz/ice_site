@@ -1,0 +1,153 @@
+{% extends 'base.html' %}
+
+{% block title %} Formula constructions {% endblock %}
+
+{% block content %}
+
+	<section id="main-page-content">
+	
+		<article id="banner">
+	        <div class="jumbotron jumbotron-fluid jumbotron-image">
+	              <div class="container text-center text-light">
+	                <h2 class="display-4" style="margin-bottom: 5rem">Formula constructions</h2>
+	                <p class="lead">Automatic search for formula constructions in Old Norse-Icelandic sagas</p>
+	              </div>
+	        </div>
+	    </article>
+
+
+	    <article id="overview">
+	        <div class="container-fluid">
+	          <div class="row">
+	            <div class="col py-3 px-lg-5 text-center text-light" id="overview-left">
+	              <p> The oral formulaic theory described the formula as a building block of oral composition that was strictly connected to meter (Parry 1930, Lord 1960). However, recently there have been several studies discussing formulas in prose traditional narratives (Lamb 2015, Sävborg 2018) and showing that in such prose corpora formulas are used without metrical conditions. The main goal of this project focused on an automatic search for formulas and meaningful repetitions in Old Norse-Icelandic sagas. For more information about the project, see the Project description section.</p>
+	              <a class="btn text-light" href="#project-description" role="button">Read more</a>
+	            </div>
+	            <div class="col py-3 px-lg-5 text-center text-light" id="overview-right">
+	              <p>The main idea of the algorithm is the compilation of a list of ngrams, its further filtration, and application of NLP methods to determine repeating semantically significant word sequences. You can see the results in the Formula search section.</p>
+	              <a class="btn text-light to-search-btn" role="button" id="overview-search-btn">Search formulas</a> 
+	            </div>
+	          </div>
+	        </div>
+	    </article>
+
+
+	    <article id="project-description">
+
+	    	<div class="container basic-content">
+
+	    		<div class="row my-5" id="description-title">
+			      <div class="col-md-7">
+			        <h2>Project description</h2>
+			      </div>
+			    </div>
+
+
+			    <div class="row mb-5" id="description1">
+			      <div class="col-md-7">
+			        <p class="lead text">
+			         Meaningful repetitions in sagas can be either formulas found in many sagas and used under similar conditions (for example, the formula of fairy-tale origin "Once upon a time"), or repetitions of phrases found in a particular saga, which often turn out to be a narrative device (for example, in the Hans-Horis saga, the same phrase occurs four times in different variations, thus framing the burning of Blund-Ketill).			        
+			        </p>
+			      </div>
+			      <div class="col-md-3 offset-md-1">
+			      	<img src="../static/img/saga1.jpg" class="img-fluid mx-auto" alt="Первый этап проекта">
+			      </div>
+			    </div>
+
+
+			    <div class="row mb-5" id="description2">
+			    	<div class="col my-5">
+			    		<h3><span class="text" style="color: #2e332d">The main goal of this project </span><span class="text-muted"> is to automatically search for repetitive structures with the possibility of variability.</span></h3>	
+			    	</div>
+			    </div>
+
+
+			    <div class="row mb-5" id="description3">
+			    	<div class="col-md-3 offset-md-1">
+			      		<img src="../static/img/saga2.jpg" class="img-fluid mx-auto" alt="Первый этап проекта">
+			      	</div>
+			      	<div class="col-md-7 offset-md-1 mt-3">
+				        <p class="lead text">Repetitions of this kind are quite variable. Often, some of the words can be replaced by lexical or contextual synonyms. Despite the fact that with the traditional manual search, such constructions are easy to notice, the search itself is very time consuming. For this reason, we were interested in automatisation of the search process and develop an algorithm that could facilitate the task of researchers.</p>
+			      	</div>
+			    </div>
+
+
+			    <div class="row mb-5" id="description4">
+			      <div class="col-md-7">
+			        <p class="lead text">Certain formulas and their variants can appear rarely in the corpus. Therefore, the entity filtering based on frequency is not applicable. Special heuristics were designed to gradually filter examples and combine contextual synonyms in groups. The algorithm consists of four stages: </p>
+			        <ul>
+			        	<li class="lead text">Ngram list formation</li>
+			        	<li class="lead text">Ngram grouping</li>
+			        	<li class="lead text">Syntactic grouping</li>
+			        	<li class="lead text">Semantic clustering</li>	
+			        </ul>
+			      </div>
+			      <div class="col-md-3 offset-md-1">
+			      	<img src="../static/img/saga3.jpg" class="img-fluid mx-auto" alt="Первый этап проекта">
+			      </div>
+			    </div>
+
+		 	</div>
+
+	    </article>
+
+
+	    <article id="project-team">
+
+	    	<div class="container basic-content">
+	    		<div class="row mb-5" id="team-names">
+	    			<div class="col">
+	    				<a class="btn-slide" id="team-list-btn">
+	    					<h2>Project Team
+	    						<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-caret-up" fill="currentColor" xmlns="http://www.w3.org/2000/svg" id="caret-sigh">
+	    							<path fill-rule="evenodd" d="M3.204 11L8 5.519 12.796 11H3.204zm-.753-.659l4.796-5.48a1 1 0 0 1 1.506 0l4.796 5.48c.566.647.106 1.659-.753 1.659H3.204a1 1 0 0 1-.753-1.659z"/>
+	    						</svg>
+	    					</h2>
+	    				</a>
+	    			</div>
+	    		</div>
+
+	    		<div class="row mb-5" id="team-list">
+	    			<table class="table table-borderless table-responsive" id="team-members-table">
+	    				<tbody>
+
+	    					<tr>
+						      <td>
+						      	<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-person-dash" viewBox="0 0 16 16">
+						      	<path fill-rule="evenodd" d="M8 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6 5c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10zM11 7.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5z"/></svg> Daria Glebova</td>
+						      <td>Supervisor</td>
+						      <td>
+						      	<p>Lecturer Faculty of Humanities, Higher School of Economics<a class="personal-link text-secondary" target="_blank" href="https://www.hse.ru/org/persons/46699944"> (web page)</a><p>
+						      </td>
+						    </tr>
+
+						    <tr>
+						      <td>
+						      	<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-person-dash" viewBox="0 0 16 16">
+						      	<path fill-rule="evenodd" d="M8 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6 5c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10zM11 7.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5z"/></svg> Evgenii Glazunov</td>
+						      <td>Algorithm and website development</td>
+						      <td>
+						      	<p>Master's degree student <a class="personal-link text-secondary" target="_blank" href="https://www.hse.ru/org/persons/160961895">(web page)</a><p>
+						      </td>
+						    </tr>
+
+						    <tr>
+						      <td>
+						      	<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-person-dash" viewBox="0 0 16 16">
+						      	<path fill-rule="evenodd" d="M8 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6 5c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10zM11 7.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5z"/></svg> Anastasiya Kostyanitsyna</td>
+						      <td>Algorithm and website development</td>
+						      <td>
+						      	<p>Master's degree student <a class="personal-link text-secondary" target="_blank" href="https://www.hse.ru/org/persons/160975755">(web page)</a><p>
+						      </td>
+						    </tr>
+
+	    				</tbody>
+					</table>
+				</div>
+	    	</div>
+
+	    </article>
+
+    </section>
+
+{% endblock %}

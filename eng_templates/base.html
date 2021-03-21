@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/jquery-ui.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/icelandic.css') }}">
+        <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Montserrat&subset=cyrillic'>
+
+        <title>{% block title %} {% endblock %}</title>
+
+    </head>
+    <body>
+
+      <header>
+        <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 bg-white border-bottom shadow-sm" id="navbar">
+          <h3 class="my-0 mr-md-auto font-weight-normal navbar-brand">Formula constructions</h3>
+          <nav class="my-2 my-md-0 mr-md-3">
+            <a class="p-3 nav-item" id="main-page" href="{{ prefix }}/">About the project</a>
+            <a class="p-3 nav-item to-search-btn" id="search-page" href="{{ prefix }}/search">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
+                <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
+              </svg> Formula search</a>
+          </nav>
+        </div>
+      </header>
+
+      <main>
+        <div>
+            {% block content %} {% endblock %}
+        </div>
+      </main>
+
+      <footer class="container-fluid text-center p-3">
+        <p class="float-end"><a class="personal-link text-light" href="#">Back to the top</a></p>
+        <p class="text-light">© 2019-2020 Higher School of Economics</p>
+      </footer>
+
+      <script src="{{ url_for('static', filename='js/config.js') }}"></script>
+      <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+      <script src="{{ url_for('static', filename='js/jquery-ui.min.js') }}"></script>
+      <script type="module" src="{{ url_for('static', filename='js/main.js') }}"></script>
+      <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+
+    </body>
+</html>
